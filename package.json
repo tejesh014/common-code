@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bs:clean": "bsb -clean-world",
-    "bs:build": "bsb -make-world",
-    "prepublishOnly": "yarn bs:build" 
+    "bs:build": "bsb -make-world"
   },
   "repository": {
     "type": "git",
