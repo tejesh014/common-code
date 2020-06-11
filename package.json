@@ -1,11 +1,12 @@
 {
-  "name": "common-code",
+  "name": "porter-reason-common-utils",
   "version": "0.0.1",
   "description": "common code export test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run test"
+    "bs:clean": "bsb -clean-world",
+    "bs:build": "bsb -make-world"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,12 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@glennsl/bs-json": "^5.0.2",
+    "bs-fetch": "^0.6.1",
+    "bs-platform": "^7.0.1"
+  },
+  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/tejesh014/common-code/issues"
   },

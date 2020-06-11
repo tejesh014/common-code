@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "bs-platform" , "/Users/tejesh/Documents/common-code/node_modules/bs-platform" ] , [ "bs-fetch" , "/Users/tejesh/Documents/common-code/node_modules/bs-fetch" ] , [ "@glennsl/bs-json" , "/Users/tejesh/Documents/common-code/node_modules/@glennsl/bs-json" ] ] , "generated" : [] }

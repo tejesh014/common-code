@@ -1,0 +1,63 @@
+g_pkg_flg = -bs-package-name porter-reason-common-utils
+src_root_dir = /Users/tejesh/Documents/common-code
+bsc = /Users/tejesh/Documents/common-code/node_modules/bs-platform/darwin/bsc.exe
+bsdep = /Users/tejesh/Documents/common-code/node_modules/bs-platform/darwin/bsb_helper.exe
+warnings = -w -44 -warn-error +27
+bsc_flags = 
+ppx_flags = 
+g_dpkg_incls = 
+g_ns = 
+bsb_dir_group = 0
+g_lib_incls = -I src -I /Users/tejesh/Documents/common-code/node_modules/bs-fetch/lib/ocaml -I /Users/tejesh/Documents/common-code/node_modules/@glennsl/bs-json/lib/ocaml
+rule build_ast_from_re
+  command = $bsc  $warnings -color always -bs-jsx 3 $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Test.reast : build_ast_from_re $src_root_dir/src/Test.re
+rule build_deps
+  command = $bsdep -hash ef9eded7495009b4ee1a884c10598419 $g_ns -g $bsb_dir_group $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Test.d : build_deps src/Test.reast
+rule ml_cmj_cmi
+  command = $bsc $g_pkg_flg -color always -bs-suffix $g_lib_incls $warnings $bsc_flags -o $out $in
+  dyndep = $in_e.d
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/Test.cmj |  src/Test.cmi $src_root_dir/lib/js/src/Test.bs.js : ml_cmj_cmi src/Test.reast ||  src/Test.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/Error.reast : build_ast_from_re $src_root_dir/src/Error.re
+build  src/Error.d : build_deps src/Error.reast
+build  src/Error.cmj |  src/Error.cmi $src_root_dir/lib/js/src/Error.bs.js : ml_cmj_cmi src/Error.reast ||  src/Error.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/index.reast : build_ast_from_re $src_root_dir/src/index.re
+build  src/index.d : build_deps src/index.reast
+build  src/index.cmj |  src/index.cmi $src_root_dir/lib/js/src/index.bs.js : ml_cmj_cmi src/index.reast ||  src/index.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/Network.reast : build_ast_from_re $src_root_dir/src/Network.re
+build  src/Network.d : build_deps src/Network.reast
+build  src/Network.cmj |  src/Network.cmi $src_root_dir/lib/js/src/Network.bs.js : ml_cmj_cmi src/Network.reast ||  src/Network.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/ErrorType.reast : build_ast_from_re $src_root_dir/src/ErrorType.re
+build  src/ErrorType.d : build_deps src/ErrorType.reast
+build  src/ErrorType.cmj |  src/ErrorType.cmi $src_root_dir/lib/js/src/ErrorType.bs.js : ml_cmj_cmi src/ErrorType.reast ||  src/ErrorType.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/Exception.reast : build_ast_from_re $src_root_dir/src/Exception.re
+build  src/Exception.d : build_deps src/Exception.reast
+build  src/Exception.cmj |  src/Exception.cmi $src_root_dir/lib/js/src/Exception.bs.js : ml_cmj_cmi src/Exception.reast ||  src/Exception.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/ResponseType.reast : build_ast_from_re $src_root_dir/src/ResponseType.re
+build  src/ResponseType.d : build_deps src/ResponseType.reast
+build  src/ResponseType.cmj |  src/ResponseType.cmi $src_root_dir/lib/js/src/ResponseType.bs.js : ml_cmj_cmi src/ResponseType.reast ||  src/ResponseType.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/ResponseHandler.reast : build_ast_from_re $src_root_dir/src/ResponseHandler.re
+build  src/ResponseHandler.d : build_deps src/ResponseHandler.reast
+build  src/ResponseHandler.cmj |  src/ResponseHandler.cmi $src_root_dir/lib/js/src/ResponseHandler.bs.js : ml_cmj_cmi src/ResponseHandler.reast ||  src/ResponseHandler.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/DefaultErrorPayload.reast : build_ast_from_re $src_root_dir/src/DefaultErrorPayload.re
+build  src/DefaultErrorPayload.d : build_deps src/DefaultErrorPayload.reast
+build  src/DefaultErrorPayload.cmj |  src/DefaultErrorPayload.cmi $src_root_dir/lib/js/src/DefaultErrorPayload.bs.js : ml_cmj_cmi src/DefaultErrorPayload.reast ||  src/DefaultErrorPayload.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
+build  src/GenericResponseMapper.reast : build_ast_from_re $src_root_dir/src/GenericResponseMapper.re
+build  src/GenericResponseMapper.d : build_deps src/GenericResponseMapper.reast
+build  src/GenericResponseMapper.cmj |  src/GenericResponseMapper.cmi $src_root_dir/lib/js/src/GenericResponseMapper.bs.js : ml_cmj_cmi src/GenericResponseMapper.reast ||  src/GenericResponseMapper.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:lib/js/src
