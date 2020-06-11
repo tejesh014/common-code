@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bs:clean": "bsb -clean-world",
-    "bs:build": "bsb -make-world"
+    "bs:build": "bsb -make-world",
+    "prepublishOnly": "yarn bs:build" 
   },
   "repository": {
     "type": "git",
@@ -14,12 +15,12 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@glennsl/bs-json": "^5.0.2",
     "bs-fetch": "^0.6.1",
     "bs-platform": "^7.0.1"
   },
+  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/tejesh014/common-code/issues"
   },
